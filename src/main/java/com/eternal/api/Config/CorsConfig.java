@@ -13,7 +13,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("https://frontend-react-eternal-app.vercel.app"); // Dominio del frontend
-        config.addAllowedMethod("*"); // Permitir todos los métodos
+        config.addAllowedMethod("*");
         config.addAllowedHeader("*"); // Permitir todas las cabeceras
         config.setAllowCredentials(true); // Permitir credenciales si es necesario
 
