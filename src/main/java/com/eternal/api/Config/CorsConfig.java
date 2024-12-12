@@ -9,9 +9,9 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOrigins("https://frontend-react-eternal-app.vercel.app","*")
                 .allowedMethods("*")
-                .allowedHeaders("*")
+                .allowedHeaders("*","origin")
                 .allowCredentials(true);//
     }
 }
