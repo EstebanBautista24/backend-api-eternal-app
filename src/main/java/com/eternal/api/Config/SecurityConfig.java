@@ -1,20 +1,14 @@
 package com.eternal.api.Config;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
-
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
+import java.util.List;
 
 @Configuration
 public class SecurityConfig {
@@ -22,9 +16,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF (solo para pruebas)
-                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-                .cors(Customizer.withDefaults()); // Asegúrate de habilitar CORS
+                .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF para pruebas
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()) // Permitir todo
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())); // Configurar CORS
 
         return http.build();
     }
@@ -32,10 +26,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("https://frontend-react-eternal-app.vercel.app");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        config.setAllowCredentials(false); // Asegúrate de que esté activado si usas cookies
+        config.setAllowedOrigins(List.of("https://frontend-react-eternal-app.vercel.app")); // Dominio del frontend
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true); // Necesario si usas cookies
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
