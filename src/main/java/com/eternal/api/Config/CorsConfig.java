@@ -12,6 +12,6 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedOrigins("https://frontend-react-eternal-app.vercel.app")
                 .allowedMethods("*")
                 .allowedHeaders("*","origin")
-                .allowCredentials(true);//
+                .allowCredentials(false);//
     }
 }

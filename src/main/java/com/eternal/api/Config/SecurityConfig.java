@@ -35,7 +35,7 @@ public class SecurityConfig {
         config.addAllowedOrigin("https://frontend-react-eternal-app.vercel.app");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
-        config.setAllowCredentials(true); // Asegúrate de que esté activado si usas cookies
+        config.setAllowCredentials(false); // Asegúrate de que esté activado si usas cookies
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

@@ -15,7 +15,7 @@ public class CustomCorsFilter {
         config.addAllowedOrigin("https://frontend-react-eternal-app.vercel.app"); // Cambia * por el dominio exacto
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
