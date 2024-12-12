@@ -12,7 +12,7 @@ public class CustomCorsFilter {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("https://frontend-react-eternal-app.vercel.app"); // Cambia * por el dominio exacto
+        config.addAllowedOrigin("https://frontend-react-eternal-2siagwd0m-estebanbautista24s-projects.vercel.app"); // Cambia * por el dominio exacto
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(false);

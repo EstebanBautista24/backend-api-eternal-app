@@ -26,7 +26,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://frontend-react-eternal-app.vercel.app")); // Dominio del frontend
+        config.setAllowedOrigins(List.of("https://frontend-react-eternal-2siagwd0m-estebanbautista24s-projects.vercel.app")); // Dominio del frontend
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // Necesario si usas cookies
