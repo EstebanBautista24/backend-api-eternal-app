@@ -1,6 +1,7 @@
 package com.eternal.api.Config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.context.annotation.Bean;
@@ -31,8 +32,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF
-                .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/balance").permitAll() // Permitir acceso a esta ruta
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.GET,"/balance").permitAll() // Permitir acceso a esta ruta
                         .anyRequest().authenticated() // Otras rutas requieren autenticación
                 );
 
