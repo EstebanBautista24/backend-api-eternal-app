@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/venta")
+@CrossOrigin(origins = "*",allowedHeaders = "*",exposedHeaders = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.OPTIONS})
 public class VentaController {
     @Autowired
     private VentaService ventaService;

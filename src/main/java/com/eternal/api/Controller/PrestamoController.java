@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/prestamo")
+@CrossOrigin(origins = "*",allowedHeaders = "*",exposedHeaders = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.OPTIONS})
 public class PrestamoController {
     @Autowired
     private PrestamoService prestamoService;
